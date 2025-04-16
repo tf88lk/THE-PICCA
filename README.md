@@ -7,11 +7,13 @@ Hardware Requirements
 - CSI Camera + libcamera (Picamera2)
   
 1. System Preparation
+   
 sudo apt update
 sudo apt full-upgrade -y
 sudo reboot
 
-2. Package Installation
+3. Package Installation
+   
 sudo apt install -y \
 python3-pip \
 python3-picamera2 \
@@ -23,17 +25,22 @@ ffmpeg \
 libavcodec-dev libavformat-dev libavdevice-dev \
 libavfilter-dev libavutil-dev libswscale-dev
 
-3. Install SSD1306 Driver
+4. Install SSD1306 Driver
+   
 sudo pip3 install adafruit-circuitpython-ssd1306 --break-system-packages
 
-4. Camera Test
+5. Camera Test
+   
 libcamera-still -o test.jpg
 
-5. Directory Structure
+6. Directory Structure
+   
 /home/YOUR-USERNAME/img/main.py
 
-6. System Service File
+7. System Service File
+   
 sudo nano /etc/systemd/system/oledcam.service
+
 [Unit]
 Description=OLED Camera Monitor Service
 After=network.target
@@ -46,17 +53,20 @@ Environment=PYTHONUNBUFFERED=1
 [Install]
 WantedBy=multi-user.target
 
-7. Start the Service
+8. Start the Service
+   
 sudo systemctl daemon-reexec
 sudo systemctl daemon-reload
 sudo systemctl enable oledcam.service
 sudo systemctl start oledcam.service
 sudo systemctl status oledcam.service
 
-8. Diagnostics
+10. Diagnostics
+    
 journalctl -u oledcam.service -b -n 50 --no-pager
 
-9. Common Errors and Solutions
+11. Common Errors and Solutions
+    
 - board: sudo apt install python3-adafruit-blinka
 - adafruit_ssd1306: sudo pip3 install adafruit-circuitpython-ssd1306 --break-system-packages
 - gpiozero: sudo apt install python3-gpiozero
