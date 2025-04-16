@@ -1,0 +1,4 @@
+<Directory /home/tf88lk/img>
+    AllowOverride All
+    Require all granted
+</Directory>
