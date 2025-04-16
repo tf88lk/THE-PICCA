@@ -1,3 +1,5 @@
+***********IN PROGRESS***********
+
 Hardware Requirements
 - Raspberry Pi Zero 2 W
 - Raspberry Pi OS: Bullseye or Bookworm
